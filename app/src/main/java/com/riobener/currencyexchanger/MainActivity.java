@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                         });
             }
         }else{
-            Toast.makeText(this,"You can only write numbers!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"You can only write numbers",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
                             CurrencyDTO currencyDTO = new CurrencyDTO(finalCurrencyTo,
                                     finalCurrencyRes, conversionRate);
                             mainViewModel.saveCurrency(currencyDTO);
+                            Toast.makeText(this,"Successfully saved",Toast.LENGTH_SHORT).show();
                         }
                     });
         });
@@ -145,6 +146,8 @@ public class MainActivity extends AppCompatActivity {
             new Thread(() -> mainViewModel.updateCurrency(conversionRate,
                     finalCurrencyTo,
                     finalCurrencyRes)).start();
+            Toast.makeText(this,"Refreshed",Toast.LENGTH_SHORT).show();
+
         });
     }
 
